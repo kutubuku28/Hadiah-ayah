@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun! 🎉</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        .slide.active { display: flex; }
+        .slide1 { background: linear-gradient(135deg, #ff6b6b, #feca57); color: white; }
+        .slide2 { background: linear-gradient(135deg, #48dbfb, #0abde3); color: white; }
+
+        .photo {
+            width: 210px;          /* ukuran lingkaran */
+            height: 210px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid rgba(255,255,255,0.9);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+        }
+
+        h1 { font-size: 2.8rem; margin-bottom: 15px; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        p { font-size: 1.35rem; line-height: 1.6; margin-bottom: 20px; }
+
+        .buttons {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .prev { background: rgba(255,255,255,0.3); color: white; }
+        .next { background: #fff; color: #333; }
+    </style>
+</head>
+<audio controls>
+  <source src="Jamrud - Selamat Ulang Tahun (lyrics).mp3" type="audio/ogg">
+  <source src="Jamrud - Selamat Ulang Tahun (lyrics).mp3" type="audio/mpeg">
+</audio>
+<body>
+    <div class="container">
+        
+        <!-- Slide 1 -->
+        <div class="slide slide1 active" id="slide1">
+          <img src="https://lh3.googleusercontent.com/u/0/d/1WpGbqRZ8tfIfSqyq6IpFxv5wNP_tE-tQ" 
+          alt="Gambar dari Google Drive V1" class="photo"
+          width="100"
+          height="130">
+            <h1>Selamat Ulang Tahun Kak cacaaa!🎂</h1>
+            <p>SSemoga panjang umur dan sehat selalu,<br>dan dimudahkan segala urusanya aamiin ❤️</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide slide2" id="slide2">
+          <img src="https://lh3.googleusercontent.com/u/0/d/1_OZBUX_-kLKxe_LPgiOv4gpCfbdLDNDV" 
+           alt="Gambar dari Google Drive V1" class="photo"
+           width="100"
+           height="130">
+            <h1>Kata ucapan untuk kakak caca 😊</h1>
+            <p>Semoga tahun ini menjadi yang terbaik buat kakak caca<br>dan semua impian kak caca tercapai aamiin ✨</p>
+            <p>Maaf yaa apip cuma bisa hadiah kek gini, semoga kak caca sukaa😊❤️</p>
+        </div>
+
+        https://drive.google.com/file/d/1_OZBUX_-kLKxe_LPgiOv4gpCfbdLDNDV/view?usp=drive_link
+
+        <!-- Tombol -->
+        <div class="buttons">
+            <button class="prev" onclick="prevSlide()">← Sebelumnya</button>
+            <button class="next" onclick="nextSlide()">Selanjutnya →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 2;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide' + n).classList.add('active');
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            let next = currentSlide + 1;
+            if (next > totalSlides) next = 1;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            let prev = currentSlide - 1;
+            if (prev < 1) prev = totalSlides;
+            showSlide(prev);
+        }
+    </script>
+</body>
+</html>
